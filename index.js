@@ -8,6 +8,10 @@
   console.log('connected');
  });
 
+ app.get('/',(req,res)=>{
+    res.send("Hello world");
+ })
+
  app.listen(port , ()=>{
     console.log(`listening to port ${port} ... `);      
  });
