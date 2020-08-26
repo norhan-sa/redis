@@ -1,12 +1,14 @@
  const   express     =     require('express');
  const   app         =     express();
  var    redis        =     require('redis');
-//  var    client       =     redis.createClient();
+ let    redisport    =     Process.env.PORT || 6379;
  let     port        =     process.env.PORT || 3000 ; 
 
-//  client.on('connect', function() {
-//   console.log('connected');
-//  });
+ var    client       =     redis.createClient();
+
+ client.on('connect', function() {
+  console.log('connected');
+ });
 
  app.get('/',(req,res)=>{
     res.send("Hello world");
