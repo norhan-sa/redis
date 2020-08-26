@@ -3,11 +3,12 @@
  var    redis        =     require('redis');
  let    redisport    =     process.env.PORT || 6379;
  let     port        =     process.env.PORT || 3000 ; 
-
  var    client       =     redis.createClient(redisport);
 
- client.on('connect', function() {
-  console.log('connected');
+ client.on('connect', function(err , res) {
+    if(err) console.log(err.message);
+    else
+    console.log('connected');
  });
 
  app.get('/',(req,res)=>{
