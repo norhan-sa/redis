@@ -1,10 +1,10 @@
  const   express     =     require('express');
  const   app         =     express();
  var    redis        =     require('redis');
- let    redisport    =     Process.env.PORT || 6379;
+ let    redisport    =     process.env.PORT || 6379;
  let     port        =     process.env.PORT || 3000 ; 
 
- var    client       =     redis.createClient();
+ var    client       =     redis.createClient(redisport);
 
  client.on('connect', function() {
   console.log('connected');
