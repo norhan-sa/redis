@@ -1,6 +1,7 @@
  const   express     =     require('express');
  const   app         =     express();
  var    redis        =     require('redis');
+const { json } = require('express');
  let    redisport    =     process.env.PORT || 6379;
  let     port        =     process.env.PORT || 3000 ; 
  var    client       =     redis.createClient({
@@ -29,7 +30,8 @@
 
    client.hgetall(req.body.email, function(err, object) {
       if(err) console.log(err.message);
-      console.log(object);
+      let result = JSON.parse(object);
+      console.log(result);
    });
 
    res.send("done");
