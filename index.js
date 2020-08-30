@@ -24,6 +24,12 @@ const { json } = require('express');
  });
 
  app.post('/addInfo',(req,res)=>{
+
+   client.hgetall(req.body.email, function(err, object) {
+      if(err) console.log(err.message);
+      console.log(typeof object);
+      console.log(object);
+   });
     
    client.hmset(req.body.email, { name: req.body.name , age: req.body.age , phone: req.body.phone });
    
