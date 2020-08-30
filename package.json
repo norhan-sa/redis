@@ -14,6 +14,7 @@
     "@madisonreed/amazon-payments": "^0.2.5",
     "express": "^4.17.1",
     "firebase-admin": "^9.0.0",
+    "geolib": "^3.3.1",
     "redis": "^3.0.2"
   }
 }
