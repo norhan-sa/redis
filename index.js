@@ -30,8 +30,8 @@ const { json } = require('express');
 
    client.hgetall(req.body.email, function(err, object) {
       if(err) console.log(err.message);
-      let result = JSON.parse(object);
-      console.log(result);
+      console.log(typeof object);
+      console.log(object);
    });
 
    res.send("done");
