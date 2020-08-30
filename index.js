@@ -21,6 +21,20 @@
     res.send("Hello world");
  });
 
+ app.post('/addInfo',(req,res)=>{
+    
+   client.hmset(req.body.email, { name: req.body.name , age: req.body.age , phone: req.body.phone });
+   
+
+   client.hgetall(req.body.email, function(err, object) {
+      if(err) console.log(err.message);
+      console.log(object);
+   });
+
+   res.send("done");
+
+ });
+
  app.listen(port , ()=>{
     console.log(`listening to port ${port} ... `);      
  });
