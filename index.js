@@ -17,6 +17,7 @@
    console.log("connected   :  "+response);
   });
 
+ app.use(express.json()); 
  app.get('/',(req,res)=>{
     res.send("Hello world");
  });
