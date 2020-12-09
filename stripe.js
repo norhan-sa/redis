@@ -6,7 +6,10 @@ require('dotenv').config();
  const  router = require('express').Router();
  const  stripe = require('stripe')(STRIPE_SECRET_KEY);
 
+ console.log(STRIPE_PUBLIC_KEY);
+
  router.get('/store', (req,res)=>{
+          console.log(STRIPE_PUBLIC_KEY);        
    return res.send({publicKey: STRIPE_PUBLIC_KEY, msg:'the key sent successfully', status:200});
  });
 
