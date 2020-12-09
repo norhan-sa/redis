@@ -7,10 +7,10 @@
  var   redisAuth     =     "uAb9OhR6ngYvLbqVe6IBl0DTuOw1EROL";
  const  stripe       =     require('./stripe');
  let      port       =     process.env.PORT || 3000 ; 
- var     client      =     redis.createClient({
-    port:13608,
-    host:"redis-13608.c44.us-east-1-2.ec2.cloud.redislabs.com"
- });
+//  var     client      =     redis.createClient({
+//     port:13608,
+//     host:"redis-13608.c44.us-east-1-2.ec2.cloud.redislabs.com"
+//  });
 
  app.use('/', stripe);
 
