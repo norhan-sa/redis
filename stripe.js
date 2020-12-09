@@ -14,15 +14,9 @@ require('dotenv').config();
 
  router.post('/purchase',(req,res)=>{
     console.log(req.body);       
-    let total = 0 ; 
-    let items = req.body.items;
-    if(!items && !req.body.stripeTokenID) return res.status(400).send({data: null , status:400});
+    let total = req.body.total;
+    if(!total && !req.body.stripeTokenID) return res.status(400).send({data: null , status:400});
     
-    console.log(req.body);
-    items.forEach(element => {
-      total += element.price * element.quantity;             
-    });
-
     stripe.customers.create({
           email: 'test@gmail.com',    
           source: req.body.stripeToken      
@@ -32,7 +26,7 @@ require('dotenv').config();
           source: req.body.stripeTokenID,
           currency: 'usd'      
        });
-    }).then(()=>{
+   }).then(()=>{
           console.log('charged successfully');  
           res.send('successfully purchased');
     }).catch(err=>{
