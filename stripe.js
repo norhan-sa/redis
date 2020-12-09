@@ -13,6 +13,7 @@ require('dotenv').config();
  });
 
  router.post('/purchase',(req,res)=>{
+    console.log(req.body);       
     let total = 0 ; 
     let items = req.body.items;
     if(!items && !req.body.stripeTokenID) return res.status(400).send({data: null , status:400});
@@ -22,9 +23,9 @@ require('dotenv').config();
       total += element.price * element.quantity;             
     });
 
-    stripe.charges.craete({
+    stripe.charges.create({
        amount: total,
-       source: req.boby.stripeTokenID,
+       source: req.body.stripeTokenID,
        currency: 'usd'      
     }).then(()=>{
        console.log('charged successfully');  
