@@ -11,7 +11,7 @@
 //     port:13608,
 //     host:"redis-13608.c44.us-east-1-2.ec2.cloud.redislabs.com"
 //  });
-
+ app.use(experss.json());
  app.use('/', stripe);
 
 //  //  R E D I S   C O N N E C T I O N 

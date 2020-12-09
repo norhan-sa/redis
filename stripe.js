@@ -9,7 +9,6 @@ require('dotenv').config();
  console.log(STRIPE_PUBLIC_KEY);
 
  router.get('/store', (req,res)=>{
-          console.log(STRIPE_PUBLIC_KEY);        
    return res.send({publicKey: STRIPE_PUBLIC_KEY, msg:'the key sent successfully', status:200});
  });
 
@@ -18,6 +17,7 @@ require('dotenv').config();
     let items = req.body.items;
     if(!items && !req.body.stripeTokenID) return res.status(400).send({data: null , status:400});
     
+    console.log(req.body);
     items.forEach(element => {
       total += element.price * element.quantity;             
     });
