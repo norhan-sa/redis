@@ -14,14 +14,14 @@
 
  app.use('/', stripe);
 
- //  R E D I S   C O N N E C T I O N 
- client.auth(redisAuth, function(err, response){
-   if(err){
-      console.log(err.message);
-   }
-   console.log("redis connection status   :  "+response);
+//  //  R E D I S   C O N N E C T I O N 
+//  client.auth(redisAuth, function(err, response){
+//    if(err){
+//       console.log(err.message);
+//    }
+//    console.log("redis connection status   :  "+response);
 
-  });
+//   });
  
 
  // R A B B I T  M Q    C O N N E C T I O N 
