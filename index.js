@@ -5,14 +5,14 @@
  let { getDistance } =     require('geolib');
  var    redis        =     require('redis');
  var   redisAuth     =     "uAb9OhR6ngYvLbqVe6IBl0DTuOw1EROL";
+ const  stripe       =     require('./stripe');
  let      port       =     process.env.PORT || 3000 ; 
  var     client      =     redis.createClient({
-
     port:13608,
     host:"redis-13608.c44.us-east-1-2.ec2.cloud.redislabs.com"
-
  });
-  
+
+ app.use('/', stripe);
 
  //  R E D I S   C O N N E C T I O N 
  client.auth(redisAuth, function(err, response){
